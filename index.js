@@ -1,5 +1,3 @@
-
-
 import express from 'express';
 const app = express();
 app.use(express.json());
@@ -15,8 +13,8 @@ app.put('/update-user',(req,res)=>{
 })
 
 app.post('/add-user',(req,res)=>{
-    let data = req.body;//Logic to add data to DB
-    console.log(data);
+    let {Name,Age} = req.body;//Logic to add data to DB
+    console.log({Name, Age});
     res.send('Data Added called successfully');
 })
 
