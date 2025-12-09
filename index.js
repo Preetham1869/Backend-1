@@ -3,8 +3,17 @@ const app = express();
 app.use(express.json());
 
 app.get('/',(req,res)=>{
+    console.log('Api called');
     res.send('Api called successfully');
 })
+app.post('/add-user',(req,res)=>{
+    // let {Name,Age} = req.body;//Logic to add data to DB
+    // console.log({Name, Age});
+    let data = req.body;
+    console.log(data);
+    res.send('Data Added called successfully');
+})
+
 
 app.put('/update-user',(req,res)=>{
     let data = req.body;
@@ -12,11 +21,6 @@ app.put('/update-user',(req,res)=>{
     res.end('User Updated successfully');
 })
 
-app.post('/add-user',(req,res)=>{
-    let {Name,Age} = req.body;//Logic to add data to DB
-    console.log({Name, Age});
-    res.send('Data Added called successfully');
-})
 
 app.delete('/delete-user',(req,res)=>{
     console.log(req.body);
